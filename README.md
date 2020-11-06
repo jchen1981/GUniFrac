@@ -53,7 +53,7 @@ adonis3(as.dist(unifracs[, , 'd_UW']) ~ SmokingStatus, data = throat.meta, strat
 dmanova(as.dist(unifracs[, , 'd_UW']) ~ Sex + SmokingStatus, data = throat.meta)
 
 # PERMANOVA omnibus test combining weighted and unweighted distance matrices
-PermanovaG2(unifracs[, , c("d_W", "d_UW")] ~ groups)  
+PermanovaG2(unifracs[, , c("d_1", "d_UW")] ~ groups)  
 ```
 
 
