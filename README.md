@@ -47,13 +47,14 @@ d5 <- unifracs[, , "d_0.5"]        # GUniFrac with alpha 0.5
 adonis3(as.dist(unifracs[, , 'd_UW']) ~ Sex + SmokingStatus, data = throat.meta)
 
 # Or we can permute within each sex
-adonis3(as.dist(unifracs[, , 'd_UW']) ~ SmokingStatus, data = throat.meta, strata = throat.meta$Sex)
+adonis3(as.dist(unifracs[, , 'd_UW']) ~ SmokingStatus, data = throat.meta, 
+strata = throat.meta$Sex)
 
 # Compare the p-values to the analytical approach
 dmanova(as.dist(unifracs[, , 'd_UW']) ~ Sex + SmokingStatus, data = throat.meta)
 
 # PERMANOVA omnibus test combining weighted and unweighted distance matrices
-PermanovaG2(unifracs[, , c("d_1", "d_UW")] ~ Sex + SmokingStatus)  
+PermanovaG2(unifracs[, , c("d_1", "d_UW")] ~ Sex + SmokingStatus, data = throat.meta)  
 ```
 
 
