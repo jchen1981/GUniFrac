@@ -1,0 +1,6 @@
+load("/Users/m123485/Dropbox/Workspace/Upenn/Methodology/2011_08_02_Generalized_UniFrac/2012_04_26_GUniFrac_Revision/GUniFrac_package/data/throat.otu.tab.rda")
+p.est
+ls()
+load("/Users/m123485/Dropbox/Workspace/Upenn/Methodology/2011_08_02_Generalized_UniFrac/2012_04_26_GUniFrac_Revision/GUniFrac_package/data/throat.otu.tab.rda")
+ls()
+dim(throat.otu.tab)

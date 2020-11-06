@@ -1,0 +1,13 @@
+Package: GUniFrac
+Type: Package
+Title: Generalized UniFrac Distances and Distance-based Multivariate Analysis of Variance
+Version: 1.2
+Date: 2020-11-03
+Author: Jun Chen
+Maintainer: Jun Chen <chen.jun2@mayo.edu>
+Description: Generalized UniFrac distances for comparing microbial communities. Three extensions to permutational multivariate analysis of variance  (PERMANOVA) using distance matrix: (1) PERMANOVA using the Freedman-Lane permutation scheme; (2) PERMANOVA omnibus test using multiple matrices; and (3) Analytical approach to approximate PERMANOVA p-value.
+Depends: matrixStats, Matrix, vegan, ape, parallel, stats, utils, R (>= 3.1.0)
+Suggests: ade4
+License: GPL-3
+Encoding: UTF-8
+
