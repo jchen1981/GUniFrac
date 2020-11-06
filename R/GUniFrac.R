@@ -245,7 +245,7 @@ adonis3 <- function (formula, data = NULL, permutations = 999, method = "bray",
 
 
  
-PermanovaG <- function(formula, dat=NULL, ...) {
+PermanovaG <- function(formula, data = NULL, ...) {
 	# Distance based statistical test by combining multiple distance
 	# matrices based on PERMANOVA procedure by taking the maximum of
 	# pseudo-F statistics
@@ -264,7 +264,7 @@ PermanovaG <- function(formula, dat=NULL, ...) {
 	
 	save.seed <- get(".Random.seed", .GlobalEnv)
 	lhs <- formula[[2]]
-	lhs <- eval(lhs, dat, parent.frame())
+	lhs <- eval(lhs, data, parent.frame())
 	rhs <- as.character(formula)[3]
 	
 	array.flag <- is.array(lhs)
@@ -297,7 +297,7 @@ PermanovaG <- function(formula, dat=NULL, ...) {
 			Y <- as.dist(lhs[[i_]])
 		}
 
-		obj <- adonis(as.formula(paste("Y", "~", rhs)), dat, ...)
+		obj <- adonis(as.formula(paste("Y", "~", rhs)), data, ...)
 		perm.mat <- obj$f.perms
 		p.perms[[i_]] <- 1 - (apply(perm.mat, 2, rank) - 1) / nrow(perm.mat)
 		p.obs[[i_]] <- obj$aov.tab[1:ncol(perm.mat), "Pr(>F)"]
@@ -324,7 +324,7 @@ PermanovaG <- function(formula, dat=NULL, ...) {
 
 
 
-PermanovaG2 <- function(formula, dat = NULL, ...) {
+PermanovaG2 <- function(formula, data = NULL, ...) {
 	# Distance based statistical test by combining multiple distance
 	# matrices based on PERMANOVA procedure by taking the maximum of
 	# pseudo-F statistics
@@ -343,7 +343,7 @@ PermanovaG2 <- function(formula, dat = NULL, ...) {
 	
 	save.seed <- get(".Random.seed", .GlobalEnv)
 	lhs <- formula[[2]]
-	lhs <- eval(lhs, dat, parent.frame())
+	lhs <- eval(lhs, data, parent.frame())
 	rhs <- as.character(formula)[3]
 	
 	array.flag <- is.array(lhs)
@@ -376,7 +376,7 @@ PermanovaG2 <- function(formula, dat = NULL, ...) {
 			Y <- as.dist(lhs[[i_]])
 		}
 		
-		obj <- adonis3(as.formula(paste("Y", "~", rhs)), dat, ...)
+		obj <- adonis3(as.formula(paste("Y", "~", rhs)), data, ...)
 		perm.mat <- obj$f.perms
 		p.perms[[i_]] <- 1 - (apply(perm.mat, 2, rank) - 1) / nrow(perm.mat)
 		p.obs[[i_]] <- obj$aov.tab[1:ncol(perm.mat), "Pr(>F)"]

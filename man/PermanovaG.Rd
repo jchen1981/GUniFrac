@@ -18,7 +18,7 @@ matrices  by taking the minimum of the P values for individual distance
 matrices. Significance is assessed by permutation.
 }
 \usage{
-PermanovaG(formula, dat = NULL, ...)
+PermanovaG(formula, data = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -28,7 +28,7 @@ FORMULA Left side of the formula (\code{Y ~ X}) is a three dimensional ARRAY
 containing the supplied distance matrices as produced by \code{\link{GUniFrac}}
  function. Or it could be a list of distance matrices.
 }
-  \item{dat}{
+  \item{data}{
 %%     ~~Describe \code{dat} here~~
 DATA.FRAME containing the covariates
 }
