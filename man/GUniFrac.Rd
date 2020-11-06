@@ -97,7 +97,7 @@ d0 <- unifracs[, , "d_0"]     	# GUniFrac with alpha 0
 d5 <- unifracs[, , "d_0.5"]   	# GUniFrac with alpha 0.5 
 
 # Permanova - Distance based multivariate analysis of variance
-adonis(as.dist(d5) ~ groups)
+adonis3(as.dist(d5) ~ groups)
 
 
 }
