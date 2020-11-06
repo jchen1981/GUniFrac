@@ -11,7 +11,7 @@ Generalized UniFrac Distances and Distance-based Multivariate Analysis of Varian
 ## Installation 
 
 ```
-install.packages(c("ape", "vegan", "Matrix", "matrixStats", "parallel"))
+install.packages(c("ape", "vegan", "Matrix", "matrixStats"))
 install.packages("devtools")
 devtools::install_github("jchen1981/GUniFrac")
 ```
