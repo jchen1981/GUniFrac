@@ -13,7 +13,7 @@ GUniFrac <- function (otu.tab, tree, alpha = c(0, 0.5, 1)) {
 	#							UniFrac distances, unweighted UniFrac distance and 
 	#							variance adjusted UniFrac distances. 
 	#
-
+	
 	if (!is.rooted(tree)) stop("Rooted phylogenetic tree required!")
 	
 	# Convert into proportions
@@ -29,7 +29,7 @@ GUniFrac <- function (otu.tab, tree, alpha = c(0, 0.5, 1)) {
 	# d_UW: unweighted UniFrac, d_VAW: weighted UniFrac
 	dimname3 <- c(paste("d", alpha, sep="_"), "d_UW", "d_VAW")
 	unifracs <- array(NA, c(n, n, length(alpha) + 2),
-				  dimnames=list(rownames(otu.tab), rownames(otu.tab), dimname3))
+			dimnames=list(rownames(otu.tab), rownames(otu.tab), dimname3))
 	for (i in 1:(length(alpha)+2)){
 		for (j in 1:n){
 			unifracs[j, j, i] <- 0
@@ -39,7 +39,7 @@ GUniFrac <- function (otu.tab, tree, alpha = c(0, 0.5, 1)) {
 	# Check OTU name consistency
 	if (sum(!(colnames(otu.tab) %in% tree$tip.label)) != 0) {
 		stop("The OTU table contains unknown OTUs! OTU names
-					in the OTU table and the tree should match!" )
+						in the OTU table and the tree should match!" )
 	}
 	
 	# Get the subtree if tree contains more OTUs
@@ -159,12 +159,12 @@ adonis3 <- function (formula, data = NULL, permutations = 999, method = "bray",
 	H.snterm <- H.s[[nterms]]
 	tIH.snterm <- t(diag(n) - H.snterm)
 	
-
+	
 	G.s <- list()
 	G.s[[1]] <- G
 	if (length(H.s) > 1)
 		for (i in 2:(length(H.s))) 	G.s[[i]] <- (diag(n) - H.s[[i - 1]]) %*% G %*% (diag(n) - H.s[[i - 1]])
-
+	
 	
 	if (length(H.s) > 1) 
 		for (i in length(H.s):2) H.s[[i]] <- H.s[[i]] - H.s[[i - 1]]
@@ -244,7 +244,7 @@ adonis3 <- function (formula, data = NULL, permutations = 999, method = "bray",
 }
 
 
- 
+
 PermanovaG <- function(formula, data = NULL, ...) {
 	# Distance based statistical test by combining multiple distance
 	# matrices based on PERMANOVA procedure by taking the maximum of
@@ -296,7 +296,7 @@ PermanovaG <- function(formula, data = NULL, ...) {
 		if (list.flag) {
 			Y <- as.dist(lhs[[i_]])
 		}
-
+		
 		obj <- adonis(as.formula(paste("Y", "~", rhs)), data, ...)
 		perm.mat <- obj$f.perms
 		p.perms[[i_]] <- 1 - (apply(perm.mat, 2, rank) - 1) / nrow(perm.mat)
@@ -551,13 +551,11 @@ dmanova <- function (formula, data = NULL, positify = FALSE,
 		obj <- calculateK3(G.tilde, HIXZ, n - df2)
 		K <- obj$K
 		
-		p.value2 <- pchisq(f.stat * K * df1, df = K * df1, lower.tail=F)
+		p.value2 <- pchisq(f.stat * K * df1, df = K * df1, lower.tail = F)
 		
 		if (p.value2 <= 0.05) {
 			
 			obj <- calculateK5(G.tilde, HIXZ, n - df2, is.sample = HBE.is.sample, iter = HBE.sample.no)
-			
-		} else {
 			
 			mu1 <- obj$mu1
 			mu2 <- obj$mu2
@@ -566,11 +564,10 @@ dmanova <- function (formula, data = NULL, positify = FALSE,
 			K <- df1 * mu2^3 / mu3^2
 			Q0 <- sqrt(2 * K) * mu1 * df1 * (f.stat - 1) / sqrt(2 * df1 * mu2)  + K
 			p.value2 <- pchisq(Q0, df = K, lower.tail = F)
-		} 
-		
+			
+		}
 		
 	}
-	
 	if (approx.method == 'HBE') {
 		
 		obj <- calculateK5(G.tilde, HIXZ, n - df2, is.sample = HBE.is.sample, iter = HBE.sample.no)
