@@ -510,7 +510,7 @@ dmanova <- function (formula, data = NULL, positify = FALSE,
 	G <- mean(D) + D - rowMeans(D) - matrix(rep(1, n), ncol=1) %*% colMeans(D)
 	
 	if (positify) {
-		G <- nearPD(G)$mat
+		G <- as.matrix(nearPD(G)$mat)
 	}
 	
 	XZi <- solve(t(XZ) %*% XZ)
