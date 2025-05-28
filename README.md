@@ -1,4 +1,5 @@
-# GUniFrac
+# Please use CRAN GUniFrac package (https://cran.r-project.org/web/packages/GUniFrac/index.html). 
+
 Generalized UniFrac Distances and Distance-based Multivariate Analysis of Variance
 
 ## Overview
